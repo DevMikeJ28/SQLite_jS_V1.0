@@ -4,7 +4,12 @@ const Message = {
     UNRECOGNIZED_COMMAND: "Unrecognized command",
     WELCOME: "Welcome to the database shell. Type '.exit' to exit.",
     HELP: "Help: Type '.help' to get help.",
-    INVALID_COMMAND: "Invalid command"
+    INVALID_COMMAND: "Invalid command",
+}
+
+//Create a enum eror mesage:
+const ErrorMessage = {
+    INSERT_INVALID_SYNTAX: "Err, Missing args required." //Thông báo cho bảng tạm thời.
 }
 
 //Create a enum command
@@ -20,4 +25,4 @@ const Command = {
     UPDATE: ".update"
 }
 
-module.exports = { Message, Command };
+module.exports = { Message, Command, ErrorMessage };
