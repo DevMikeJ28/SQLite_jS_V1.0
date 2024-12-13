@@ -1,16 +1,16 @@
 const fs = require("node:fs/promises");
 
-async function checkFileExists() {
+async function checkFileExists(path) {
   const fileExists = async (path) => !!(await fs.stat(path).catch(() => false));
 
-  if (await fileExists("./data.json")) {
-    console.log("File exists");
+  if (await fileExists(path)) {
+    console.log(`${path} already exists`);
   } else {
-    console.log("File not found");
+    console.log(`${path} File not found`);
      
-    await fs.appendFile("./data.json", "", function (err) {
+    await fs.appendFile(path, "", function (err) {
       if (err) throw err;
-      console.log("File created");
+      console.log(`${path}File created`);
     });
   }
 

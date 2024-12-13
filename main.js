@@ -3,12 +3,15 @@ const fs = require("node:fs/promises");
 const { Message, Command, ErrorMessage } = require("./enum.js");
 const { Row } = require("./struct.js");
 const { checkFileExists } = require("./helper.js");
+const { tableSpaceHandling } = require("./tableSpaceHandling.js");
 
 //Gloal variable:
 const rl = readlinePromis.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
+
+const spaceHandling = new tableSpaceHandling();
 
 const listComand = Object.keys(Command);
 
@@ -87,7 +90,7 @@ function handleCommand(input) {
  */
 function main() {
   //Welcome message:
-  checkFileExists();
+  // checkFileExists();
   console.log(Message.WELCOME);
 
   function excecute() {
